@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6d6c2d054173e472ce2efd7b6ab194e8 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 130px;
+        background-color: rgba(255, 255, 255, 0.85);  
+        border: 1px solid #999;
+        border-radius: 5px;
+        padding: 8px 10px;
+        box-shadow: 2px 2px 6px rgba(0,0,0,0.3); 
+        font-size: 19px;
+        z-index: 9999;
+        line-height: 1.6;
+    ">
+        <div style="display: flex; align-items: center;">
+            <div style="width: 14px; height: 14px; background:#0B307F; margin-right: 5px;"></div>
+            <span><b>축제영역</b></span>
+        </div>
+        <div style="display: flex; align-items: center; margin-top: 5px;">
+            <div style="width: 14px; height: 14px; background:red; border-radius: 4px; margin-right: 5px;"></div>
+            <span><b>2차목적지</b></span>
+        </div>
+    </div>
+    
+    
+            <div class="folium-map" id="map_6d6c2d054173e472ce2efd7b6ab194e8" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_6d6c2d054173e472ce2efd7b6ab194e8 = L.map(
+                "map_6d6c2d054173e472ce2efd7b6ab194e8",
+                {
+                    center: [36.94817431280116, 126.74942881005737],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_683a1d045c7ab190277df6664894c671 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_6d6c2d054173e472ce2efd7b6ab194e8);
+        
+    
+        function geo_json_8f0bd3d20f84894a52ca54226417d6e8_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "black", "fillColor": "#0B307F", "fillOpacity": 0.7, "weight": 7};
+            }
+        }
+
+        function geo_json_8f0bd3d20f84894a52ca54226417d6e8_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_8f0bd3d20f84894a52ca54226417d6e8 = L.geoJson(null, {
+                onEachFeature: geo_json_8f0bd3d20f84894a52ca54226417d6e8_onEachFeature,
+            
+                style: geo_json_8f0bd3d20f84894a52ca54226417d6e8_styler,
+        });
+
+        function geo_json_8f0bd3d20f84894a52ca54226417d6e8_add (data) {
+            geo_json_8f0bd3d20f84894a52ca54226417d6e8
+                .addData(data)
+                .addTo(map_6d6c2d054173e472ce2efd7b6ab194e8);
+        }
+            geo_json_8f0bd3d20f84894a52ca54226417d6e8_add({"bbox": [126.33263881242792, 36.73686236616886, 126.33540575221846, 36.739057981872854], "features": [{"bbox": [126.33263881242792, 36.73686236616886, 126.33540575221846, 36.739057981872854], "geometry": {"coordinates": [[[126.33263881242792, 36.738433187398215], [126.33436641461674, 36.739057981872854], [126.33540575221846, 36.737742641662024], [126.33369114753206, 36.73686236616886], [126.33263881242792, 36.738433187398215]]], "type": "Polygon"}, "id": "0", "properties": {"\uad00\uad11\uc9c0\uc810": "\ubd80", "\uc601\uc5ed\uba85": "\ud0dc\uc548\uad70\uc2e4\ub0b4\uccb4\uc721\uad00"}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_8f0bd3d20f84894a52ca54226417d6e8.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature=>typeof(feature)=='object' ? JSON.stringify(feature) : feature;
+    let fields = ["\uc601\uc5ed\uba85"];
+    let aliases = ["\ud589\uc0ac\uc7a5\uc18c"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{"className": "foliumtooltip", "sticky": true});
+                     
+    
+            var marker_cluster_7dd6888974eb7a11b24484536aa8d015 = L.markerClusterGroup(
+                {}
+            );
+            map_6d6c2d054173e472ce2efd7b6ab194e8.addLayer(marker_cluster_7dd6888974eb7a11b24484536aa8d015);
+        
+    
+            var circle_marker_aef30aff62d048f054bb2e9916b1ef1f = L.circleMarker(
+                [37.28437606998423, 127.21613876460435],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_7dd6888974eb7a11b24484536aa8d015);
+        
+    
+        var popup_d3fbf3260e409b4ba2dc37c37bed2840 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1385085096a0c7f33736204a10927f38 = $(`<div id="html_1385085096a0c7f33736204a10927f38" style="width: 100.0%; height: 100.0%;">용인토탈씽크 (18명)</div>`)[0];
+                popup_d3fbf3260e409b4ba2dc37c37bed2840.setContent(html_1385085096a0c7f33736204a10927f38);
+            
+        
+
+        circle_marker_aef30aff62d048f054bb2e9916b1ef1f.bindPopup(popup_d3fbf3260e409b4ba2dc37c37bed2840)
+        ;
+
+        
+    
+    
+            circle_marker_aef30aff62d048f054bb2e9916b1ef1f.bindTooltip(
+                `<div>
+                     용인토탈씽크 (18명)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_269b69d138f27b6f43ee28c6ee163254 = L.circleMarker(
+                [36.747088520965896, 126.303860536531],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_7dd6888974eb7a11b24484536aa8d015);
+        
+    
+        var popup_e76d77364d6d7ef9ed3b0c5e14dc5297 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_32ced4a5a7a91cf0ed4b41d00143caf3 = $(`<div id="html_32ced4a5a7a91cf0ed4b41d00143caf3" style="width: 100.0%; height: 100.0%;">레인보우모텔 (16명)</div>`)[0];
+                popup_e76d77364d6d7ef9ed3b0c5e14dc5297.setContent(html_32ced4a5a7a91cf0ed4b41d00143caf3);
+            
+        
+
+        circle_marker_269b69d138f27b6f43ee28c6ee163254.bindPopup(popup_e76d77364d6d7ef9ed3b0c5e14dc5297)
+        ;
+
+        
+    
+    
+            circle_marker_269b69d138f27b6f43ee28c6ee163254.bindTooltip(
+                `<div>
+                     레인보우모텔 (16명)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_58e0320f5ee698bba0fe206090d94078 = L.circleMarker(
+                [36.61197255561808, 126.31574499104381],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_7dd6888974eb7a11b24484536aa8d015);
+        
+    
+        var popup_5fe4cb321b95dfd80577d308efe35c60 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_eb1793eb9c6c93adc8d4e36c14c7c828 = $(`<div id="html_eb1793eb9c6c93adc8d4e36c14c7c828" style="width: 100.0%; height: 100.0%;">태안로컬푸드직매장 (3명)</div>`)[0];
+                popup_5fe4cb321b95dfd80577d308efe35c60.setContent(html_eb1793eb9c6c93adc8d4e36c14c7c828);
+            
+        
+
+        circle_marker_58e0320f5ee698bba0fe206090d94078.bindPopup(popup_5fe4cb321b95dfd80577d308efe35c60)
+        ;
+
+        
+    
+    
+            circle_marker_58e0320f5ee698bba0fe206090d94078.bindTooltip(
+                `<div>
+                     태안로컬푸드직매장 (3명)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_3d88bc0c3391000a949f8f47562a026d = L.circleMarker(
+                [36.68690881321612, 126.2827188555104],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_7dd6888974eb7a11b24484536aa8d015);
+        
+    
+        var popup_a3d4e530877ef416e1797f977e5b943c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6458fdbc6753f654c1b8ad1afa145ac5 = $(`<div id="html_6458fdbc6753f654c1b8ad1afa145ac5" style="width: 100.0%; height: 100.0%;">팜카밀레허브농원 (3명)</div>`)[0];
+                popup_a3d4e530877ef416e1797f977e5b943c.setContent(html_6458fdbc6753f654c1b8ad1afa145ac5);
+            
+        
+
+        circle_marker_3d88bc0c3391000a949f8f47562a026d.bindPopup(popup_a3d4e530877ef416e1797f977e5b943c)
+        ;
+
+        
+    
+    
+            circle_marker_3d88bc0c3391000a949f8f47562a026d.bindTooltip(
+                `<div>
+                     팜카밀레허브농원 (3명)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            map_6d6c2d054173e472ce2efd7b6ab194e8.fitBounds(
+                [[36.61197255561808, 126.2827188555104], [37.28437606998423, 127.21613876460435]],
+                {}
+            );
+        
+</script>
+</html>
